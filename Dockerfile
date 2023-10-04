@@ -1,5 +1,5 @@
 # start from base
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 LABEL maintainer="Khiem Nguyen <ntkhiem@tma.com.vn>"
 
