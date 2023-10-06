@@ -5,7 +5,7 @@ from flask import Flask, jsonify, request, render_template
 import sys
 import requests
 
-es = Elasticsearch(host='es')
+es = Elasticsearch('http://20.227.139.77:9200')
 
 app = Flask(__name__)
 
@@ -29,6 +29,7 @@ def safe_check_index(index, retry=3):
         return status
     except exceptions.ConnectionError as e:
         print("Unable to connect to ES. Retrying in 5 secs...")
+        print("Error: ", e)
         time.sleep(5)
         safe_check_index(index, retry-1)
 
